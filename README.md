@@ -8,7 +8,7 @@ This chart will do the following:
 * 1 x Hadoop Datanode
 * 1 x Hadoop NameNode
 * 1 x Yarn Resource Manager
-* 1 x Hadoop NodeManager
+* 1 x Yarn NodeManager
 * All using Kubernetes Deployments
 
 ## Installing the Chart
@@ -16,6 +16,7 @@ This chart will do the following:
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
+$ helm package .
 $ helm install --name gamabox -f values.yaml
 ```
 
