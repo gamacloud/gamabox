@@ -1,0 +1,105 @@
+#======================================================
+# APACHE SPARK
+#======================================================
+Spark:
+  Path: "/opt/spark"
+
+Master:
+  Name: master
+  Image: "muhammadmuhlas/gamabox-spark"
+  ImageTag: 2.3.2
+  Replicas: 1
+  Component: "spark-master"
+  Cpu: "100m"
+  Memory: "512Mi"
+  ServicePort: 7077
+  ContainerPort: 7077
+  DaemonMemory: 1g
+  ServiceType: LoadBalancer
+
+WebUi:
+  Name: webui
+  ServicePort: 8080
+  ContainerPort: 8080
+
+Worker:
+  Name: worker
+  Image: "muhammadmuhlas/gamabox-spark"
+  ImageTag: 2.3.2
+  Replicas: 3
+  Component: "spark-worker"
+  Cpu: "100m"
+  Memory: "512Mi"
+  ContainerPort: 8081
+  DaemonMemory: 1g
+  ExecutorMemory: 1g
+  Autoscaling:
+    Enabled: false
+  ReplicasMax: 10
+  CpuTargetPercentage: 50
+
+#======================================================
+# APACHE HADOOP
+#======================================================
+
+image:
+  repository: muhammadmuhlas/gamabox-hadoop
+  tag: 2.9.0
+  pullPolicy: IfNotPresent
+hadoopVersion: 2.9.0
+antiAffinity: "hard"
+
+hdfs:
+  nameNode:
+    pdbMinAvailable: 1
+    resources:
+      requests:
+        memory: "3048Mi"
+        cpu: "200m"
+      limits:
+        memory: "11000Mi"
+        cpu: "4000m"
+  dataNode:
+    replicas: 1
+    pdbMinAvailable: 1
+    resources:
+      requests:
+        memory: "2048Mi"
+        cpu: "200m"
+      limits:
+        memory: "8000Mi"
+        cpu: "4000m"
+
+yarn:
+  resourceManager:
+    pdbMinAvailable: 1
+    resources:
+      requests:
+        memory: "1024Mi"
+        cpu: "200m"
+      limits:
+        memory: "11000Mi"
+        cpu: "4000m"
+  nodeManager:
+    pdbMinAvailable: 1
+    replicas: 2
+    parallelCreate: true
+    resources:
+      requests:
+        memory: "5000Mi"
+        cpu: "2500m"
+      limits:
+        memory: "11000Mi"
+        cpu: "4000m"
+
+persistence:
+  nameNode:
+    enabled: false
+    storageClass: "-"
+    accessMode: ReadWriteOnce
+    size: 50Gi
+  dataNode:
+    enabled: false
+    storageClass: "-"
+    accessMode: ReadWriteOnce
+    size: 200Gi
