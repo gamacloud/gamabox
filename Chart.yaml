@@ -4,6 +4,7 @@ version: 1.0.0
 appVersion: 1.0.0
 description: Fast and general-purpose cluster computing system.
 home: http://gamabox.com
+icon: http://os.gamabox.id/images/favicon.ico
 sources:
   - https://github.com/gamacloud/gamabox
 maintainers:

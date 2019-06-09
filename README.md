@@ -16,7 +16,7 @@ This chart will do the following:
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml stable/spark
+$ helm install --name gamabox -f values.yaml
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
