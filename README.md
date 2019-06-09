@@ -17,7 +17,7 @@ Alternatively, a YAML file that specifies the values for the parameters can be p
 
 ```bash
 $ helm package .
-$ helm install --name gamabox -f values.yaml
+$ helm install gamabox--name gamabox -f values.yaml
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
