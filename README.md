@@ -1,4 +1,5 @@
 # Gamabox Helm Chart
+This chart used to deploy Big Data environment in Kubernetes Cluster. whether on local or on production state.
 
 ## Chart Details
 This chart will do the following:
@@ -21,33 +22,3 @@ $ helm install gamabox--name gamabox -f values.yaml
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
-
-gamabox
-|-- Chart.yaml
-|-- README.md
-|-- templates
-|	|-- NOTES.txt
-|	|-- _helpers.tpl
-|	|-- hadoop-configmap.yaml
-|	|-- hdfs-dn-pdb.yaml
-|	|-- hdfs-dn-pvc.yaml
-|	|-- hdfs-dn-statefulset.yaml
-|	|-- hdfs-dn-svc.yaml
-|	|-- hdfs-nn-pdb.yaml
-|	|-- hdfs-nn-pvc.yaml
-|	|-- hdfs-nn-statefulset.yaml
-|	|-- hdfs-nn-svc.yaml
-|	|-- spark-master-deployment.yaml
-|	|-- spark-sql-test.yaml
-|	|-- spark-worker-deployment.yaml
-|	|-- spark-worker-hpa.yaml
-|	|-- yarn-nm-pdb.yaml
-|	|-- yarn-nm-statefulset.yaml
-|	|-- yarn-nm-svc.yaml
-|	|-- yarn-rm-pdb.yaml
-|	|-- yarn-rm-statefulset.yaml
-|	|-- yarn-rm-svc.yaml
-|	|--- yarn-ui-svc.yaml
-|--- values.yaml
-
-1 directory, 25 files
